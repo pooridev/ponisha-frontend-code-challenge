@@ -1826,6 +1826,11 @@ keyv@^4.5.3:
   dependencies:
     json-buffer "3.0.1"
 
+large-small-dynamic-viewport-units-polyfill@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/large-small-dynamic-viewport-units-polyfill/-/large-small-dynamic-viewport-units-polyfill-0.1.1.tgz#30ae68ae1323c09e4855df23ae9de32b6d7e526a"
+  integrity sha512-98hOXouuWWcWGXaFwztU/LyGjwe8QNYAXRwuGiO3eI2bmDv+pvDNN5G9udP8CQldhyRcJ0gQzFigjHteTLvyQQ==
+
 levn@^0.4.1:
   version "0.4.1"
   resolved "https://registry.yarnpkg.com/levn/-/levn-0.4.1.tgz#ae4562c007473b932a6200d403268dd2fffc6ade"
