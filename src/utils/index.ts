@@ -7,3 +7,14 @@ export function getComponentDisplayName(element: ReactElement) {
     ? (type as FC).displayName || (type as FC).name || 'Unknown'
     : type
 }
+
+export const debounce = (func: (...param: any[]) => void, timeout = 300) => {
+  let timer: number | null = null
+
+  return (...args: any) => {
+    if (timer) clearTimeout(timer)
+    timer = setTimeout(() => {
+      func.apply(this, args)
+    }, timeout)
+  }
+}
