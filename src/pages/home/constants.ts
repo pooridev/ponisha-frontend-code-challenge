@@ -28,7 +28,7 @@ export const FORM_STEPS_MAP: Record<FormStep, { title?: string; component: FC }>
   },
 }
 
-type StepsListItem = {
+export type StepsListItem = {
   id: FormStep
   title: string
 }
