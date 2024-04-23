@@ -1,5 +1,13 @@
+import Footer from '../../Footer'
+
 const PersonalInfoStep = () => {
-  return <>Personal Info</>
+  return (
+    <div>
+      <Footer>
+        <Footer.NextButton>Next Step</Footer.NextButton>
+      </Footer>
+    </div>
+  )
 }
 
 export default PersonalInfoStep

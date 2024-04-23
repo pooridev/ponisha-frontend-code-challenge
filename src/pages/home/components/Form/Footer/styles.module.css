@@ -1,0 +1,23 @@
+.footer {
+  background: var(--white);
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+}
+
+:global(.nextButton),
+:global(.previousButton) {
+  all: unset;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 0.3rem;
+}
+
+:global(.nextButton) {
+  background-color: var(--blue-grey-900);
+  color: var(--white);
+}

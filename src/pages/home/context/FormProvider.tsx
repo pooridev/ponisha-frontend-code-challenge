@@ -8,7 +8,7 @@ export const FormContext = createContext<FormContextValue>({} as FormContextValu
 const FormProvider = ({ children }: PropsWithChildren) => {
   const [formState, dispatch] = useReducer(formReducer, {} as FormState)
 
-  return <FormContext.Provider value={{}}>{children}</FormContext.Provider>
+  return <FormContext.Provider value={formState}>{children}</FormContext.Provider>
 }
 
 export default FormProvider

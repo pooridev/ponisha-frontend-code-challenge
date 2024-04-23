@@ -7,7 +7,7 @@ import styles from './styles.module.css'
 const Form = () => {
   const { activeStep, handleChangeStep } = useFormStep()
 
-  const FormStepComponent = FORM_STEPS_MAP[activeStep]
+  const FormStepComponent = FORM_STEPS_MAP[activeStep].component
 
   return (
     <div className={styles.formWrapper}>
