@@ -5,7 +5,7 @@ import StepIndicators from './StepIndicators'
 import styles from './styles.module.css'
 
 const Form = () => {
-  const { activeStep, handleChangeStep } = useFormStep()
+  const { activeStep } = useFormStep()
 
   const FormStepComponent = FORM_STEPS_MAP[activeStep].component
 

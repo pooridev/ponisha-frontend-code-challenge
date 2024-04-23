@@ -3,7 +3,7 @@ import { AddOne, Plan } from '../types'
 export interface FormValues {
   userName: string
   email: string
-  phoneNumber: number
+  phoneNumber: number | string
   selectedAddOnes: AddOne[]
   selectedPlan: Plan
 }
@@ -16,7 +16,9 @@ export interface FormState {
 export interface FormContextValue {
   state: FormState
   actions: {
-    handleChangeFormValue: (field: keyof FormValues, value: FormValues[keyof FormValues]) => void
+    handleUserNameChange: (username: string) => void
+    handleEmailChange: (email: string) => void
+    handlePhoneNumberChange: (phoneNumber: number) => void
     handleSubmit: (onSubmit: (formValues: FormValues) => void) => void
   }
 }

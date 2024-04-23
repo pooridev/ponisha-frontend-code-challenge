@@ -17,6 +17,7 @@ module.exports = {
   },
   plugins: ['react-refresh', '@typescript-eslint'],
   rules: {
+    '@typescript-eslint/no-explicit-any': 'off',
     'no-var': ['error'],
     'prefer-const': ['error', { ignoreReadBeforeAssign: true }],
     'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],

@@ -1,11 +1,14 @@
 import Layout from '../../components/Layout'
 import Form from './components/Form'
+import FormProvider from './context/FormProvider'
 
 const Home = () => {
   return (
-    <Layout>
-      <Form />
-    </Layout>
+    <FormProvider>
+      <Layout>
+        <Form />
+      </Layout>
+    </FormProvider>
   )
 }
 
