@@ -1,0 +1,16 @@
+.layout {
+  min-height: 100vh; /* For browsers that don't support CSS variables */
+  min-height: calc(var(--1dvh, 1vh) * 100); /* This is the "polyfill" */
+  min-height: 100dvh; /* This is for modern browsers that support svh, dvh and lvh viewport units */
+  background: var(--blue-50);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (min-width: 992px) {
+  .layout {
+    display: unset;
+  }
+}
