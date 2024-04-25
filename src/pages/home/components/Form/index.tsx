@@ -1,22 +1,43 @@
-import { FORM_STEPS_MAP } from '../../constants'
-import { useFormStep } from '../../hooks/useFormStep/useFormStep'
+import { Children, PropsWithChildren, ReactElement } from 'react'
+
+import Footer from './Footer'
+import Header from './Header'
 import StepIndicators from './StepIndicators'
 
 import styles from './styles.module.css'
+import Body from './‌Body'
+import { getComponentDisplayName } from '../../../../utils'
+import { FormStep } from '../../hooks'
 
-const Form = () => {
-  const { activeStep, handleChangeStep } = useFormStep()
+interface Props {
+  activeStep: FormStep
+  handleChangeStep: (step: FormStep) => void
+}
 
-  const FormStepComponent = FORM_STEPS_MAP[activeStep].component
+const Form = ({ activeStep, children }: PropsWithChildren<Props>) => {
+  const childrenArray = Children.toArray(children)
+
+  const headerEl = childrenArray.find(child => getComponentDisplayName(child as ReactElement) == 'Header')
+  const bodyEl = childrenArray.find(child => getComponentDisplayName(child as ReactElement) == 'Body')
+  const footerEl = childrenArray.find(child => getComponentDisplayName(child as ReactElement) == 'Footer')
 
   return (
     <div className={styles.formWrapper}>
+      {headerEl}
+
       <StepIndicators activeStep={activeStep} />
+
       <form className={styles.form} onSubmit={e => e.preventDefault()}>
-        <FormStepComponent activeStep={activeStep} handleStepChange={handleChangeStep} />
+        {bodyEl}
       </form>
+
+      {footerEl}
     </div>
   )
 }
+
+Form.Footer = Footer
+Form.Body = Body
+Form.Header = Header
 
 export default Form
