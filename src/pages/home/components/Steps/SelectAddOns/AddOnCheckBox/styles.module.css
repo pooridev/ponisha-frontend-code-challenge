@@ -1,0 +1,42 @@
+.addOnCheckbox {
+  display: flex;
+  padding: 1rem;
+  background: var(--white);
+  border: 1px solid var(--grey-400);
+  border-radius: 7px;
+  cursor: pointer;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  transition: all ease 0.2s;
+}
+
+.addOnCheckbox:hover {
+  border-color: var(--blue-800);
+}
+
+.addOnCheckbox.checked {
+  border-color: var(--blue-800);
+  background: var(--blue-grey-50);
+}
+
+.addOnInfo {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.title {
+  color: var(--blue-grey-900);
+  font-weight: bold;
+}
+
+.description {
+  color: var(--grey-400);
+  font-size: 0.9rem;
+}
+
+.price {
+  font-size: 0.9rem;
+  color: var(--blue-800);
+}

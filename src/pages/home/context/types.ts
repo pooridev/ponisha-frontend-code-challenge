@@ -5,7 +5,7 @@ export interface FormValues {
   email: string
   phoneNumber: number | string
   selectedAddOnes: AddOne[]
-  selectedPlan: Plan
+  selectedPlan: Plan | null
 }
 
 export type FormErrors = Partial<Record<keyof FormValues, string>>
@@ -22,6 +22,7 @@ export interface FormContextValue {
     handleEmailChange: (email: string) => void
     handlePhoneNumberChange: (phoneNumber: number) => void
     handleSetErrors: (errors: FormErrors) => void
+    handleSelectedAddOnChange: (addOn: AddOne) => void
   }
 }
 

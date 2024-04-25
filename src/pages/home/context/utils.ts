@@ -39,20 +39,20 @@ export const formReducer = (formState: FormState, action: FormAction): FormState
       }
 
     case 'UPDATE_ADD_ONES': {
-      const selectedAddOnes = formState.values.selectedAddOnes
-      const recievedAddOne = action.payload
+      const selectedAddOns = formState.values.selectedAddOnes
+      const recievedAddOn = action.payload
 
-      const shouldRemove = selectedAddOnes.some(addOne => addOne.id == recievedAddOne.id)
+      const shouldRemove = selectedAddOns.some(addOn => addOn.id == recievedAddOn.id)
 
-      const updatedAddOnes = shouldRemove
-        ? selectedAddOnes.filter(addOne => addOne.id !== recievedAddOne.id)
-        : [{ ...recievedAddOne }, ...selectedAddOnes]
+      const updatedAddOns = shouldRemove
+        ? selectedAddOns.filter(addOn => addOn.id !== recievedAddOn.id)
+        : [{ ...recievedAddOn }, ...selectedAddOns]
 
       return {
         ...formState,
         values: {
           ...formState.values,
-          selectedAddOnes: updatedAddOnes,
+          selectedAddOnes: updatedAddOns,
         },
       }
     }

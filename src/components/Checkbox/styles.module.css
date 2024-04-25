@@ -1,0 +1,30 @@
+.checkboxWrapper {
+  width: 25px;
+  height: 25px;
+  border-radius: 5px;
+  padding: 3px;
+  background-color: var(--white);
+  border: 2px solid var(--grey-400);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all ease 0.2s;
+}
+
+.checkboxWrapper.checked {
+  background-color: var(--indigo-400);
+  border-color: var(--indigo-400);
+}
+
+.checkMark {
+  height: 13px;
+  width: 8px;
+  bottom: 2px;
+  position: relative;
+  border-bottom: 3px solid var(--white);
+  border-right: 3px solid var(--white);
+  transform: rotate(45deg);
+  display: block;
+}

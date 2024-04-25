@@ -1,36 +1,16 @@
 import { PropsWithChildren, createContext, useMemo, useReducer } from 'react'
 
-import { FormContextValue, FormErrors, FormState } from './types'
+import type { FormContextValue, FormErrors } from './types'
 import { formReducer } from './utils'
+import { initialFormState } from './constants'
+import { AddOne } from '../types'
 
 export const FormContext = createContext<FormContextValue>({
-  state: {
-    values: {
-      userName: '',
-      email: '',
-      phoneNumber: 0,
-    },
-    errors: {
-      userName: '',
-      email: '',
-      phoneNumber: '',
-    },
-  },
+  state: initialFormState,
 } as FormContextValue)
 
 const FormProvider = ({ children }: PropsWithChildren) => {
-  const [formState, dispatch] = useReducer(formReducer, {
-    values: {
-      userName: '',
-      email: '',
-      phoneNumber: '',
-    },
-    errors: {
-      userName: '',
-      email: '',
-      phoneNumber: '',
-    },
-  } as FormState)
+  const [formState, dispatch] = useReducer(formReducer, initialFormState)
 
   const { values, errors } = formState
   const { userName, email, phoneNumber, selectedAddOnes, selectedPlan } = values
@@ -64,6 +44,13 @@ const FormProvider = ({ children }: PropsWithChildren) => {
     })
   }
 
+  const handleSelectedAddOnChange = (addOne: AddOne) => {
+    dispatch({
+      type: 'UPDATE_ADD_ONES',
+      payload: addOne,
+    })
+  }
+
   const contextValue = useMemo<FormContextValue>(
     () => ({
       state: formState,
@@ -72,6 +59,7 @@ const FormProvider = ({ children }: PropsWithChildren) => {
         handleEmailChange,
         handlePhoneNumberChange,
         handleSetErrors,
+        handleSelectedAddOnChange,
       },
     }),
     [userName, email, phoneNumber, selectedAddOnes, selectedPlan, emailError, userNameError, phoneNumberError]

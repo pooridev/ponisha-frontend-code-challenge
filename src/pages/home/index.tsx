@@ -45,7 +45,7 @@ const Home = () => {
             </Form.Header>
 
             <Suspense>
-            <FormStepComponent ref={validateCurrentStepRef} />
+              <FormStepComponent ref={validateCurrentStepRef} />
             </Suspense>
           </Form.Body>
 

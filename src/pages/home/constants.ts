@@ -1,10 +1,12 @@
-import { FC, ForwardRefExoticComponent, RefAttributes } from 'react'
+import { FC, ForwardRefExoticComponent, RefAttributes, lazy } from 'react'
 import { FORM_STEPS, FormStep } from './hooks'
+
 const PersonalInfoStep = lazy(() => import('./components/Steps/PersonalInfo'))
 const SelectAddOnsStep = lazy(() => import('./components/Steps/SelectAddOns'))
 const SelectPlanStep = lazy(() => import('./components/Steps/SelectPlan'))
 const PreviewStep = lazy(() => import('./components/Steps/Preview'))
 const SuccessStep = lazy(() => import('./components/Steps/Success'))
+
 import { ValidateStepRef } from './types'
 
 export const FORM_STEPS_MAP: Record<
@@ -39,7 +41,7 @@ export const FORM_STEPS_MAP: Record<
     prevButtonLabel: 'Go back',
     subtitle: 'Pick add-ons',
     description: 'Add-ons help enhance your gaming exprience.',
-    component: SelectAddOnesStep,
+    component: SelectAddOnsStep,
   },
   [FORM_STEPS.PREVIEW]: {
     title: 'Summary',
