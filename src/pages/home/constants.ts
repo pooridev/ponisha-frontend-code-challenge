@@ -1,10 +1,10 @@
 import { FC, ForwardRefExoticComponent, RefAttributes } from 'react'
 import { FORM_STEPS, FormStep } from './hooks'
-import PersonalInfoStep from './components/Steps/PersonalInfo'
-import SelectAddOnesStep from './components/Steps/SelectAddOnes'
-import SelectPlanStep from './components/Steps/SelectPlan'
-import PreviewStep from './components/Steps/Preview'
-import SuccessStep from './components/Steps/Success'
+const PersonalInfoStep = lazy(() => import('./components/Steps/PersonalInfo'))
+const SelectAddOnsStep = lazy(() => import('./components/Steps/SelectAddOns'))
+const SelectPlanStep = lazy(() => import('./components/Steps/SelectPlan'))
+const PreviewStep = lazy(() => import('./components/Steps/Preview'))
+const SuccessStep = lazy(() => import('./components/Steps/Success'))
 import { ValidateStepRef } from './types'
 
 export const FORM_STEPS_MAP: Record<
