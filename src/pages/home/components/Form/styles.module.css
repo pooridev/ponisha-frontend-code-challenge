@@ -1,8 +1,20 @@
 .formWrapper {
   width: 100%;
 }
+
 .form {
   position: absolute;
   top: 6rem;
   width: 100%;
+}
+
+@media (min-width: 992px) {
+  .formWrapper {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  .form {
+    position: static;
+  }
 }

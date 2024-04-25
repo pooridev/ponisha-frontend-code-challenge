@@ -8,9 +8,11 @@ export interface FormValues {
   selectedPlan: Plan
 }
 
+export type FormErrors = Partial<Record<keyof FormValues, string>>
+
 export interface FormState {
   values: FormValues
-  errors: Record<keyof FormValues, string>
+  errors: FormErrors
 }
 
 export interface FormContextValue {
@@ -19,7 +21,7 @@ export interface FormContextValue {
     handleUserNameChange: (username: string) => void
     handleEmailChange: (email: string) => void
     handlePhoneNumberChange: (phoneNumber: number) => void
-    handleSubmit: (onSubmit: (formValues: FormValues) => void) => void
+    handleSetErrors: (errors: FormErrors) => void
   }
 }
 
@@ -43,4 +45,8 @@ export type FormAction =
   | {
       type: 'UPDATE_PLAN'
       payload: Plan
+    }
+  | {
+      type: 'SET_ERROR'
+      paylad: FormErrors
     }

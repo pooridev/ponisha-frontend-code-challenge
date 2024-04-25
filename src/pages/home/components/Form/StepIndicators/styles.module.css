@@ -43,4 +43,10 @@
   .stepInfo {
     display: block;
   }
+
+  .stepIndicators {
+    position: relative;
+    width: 20rem;
+    height: 100%;
+  }
 }

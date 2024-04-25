@@ -5,15 +5,15 @@ import StepIndicators from './StepIndicators'
 import styles from './styles.module.css'
 
 const Form = () => {
-  const { activeStep } = useFormStep()
+  const { activeStep, handleChangeStep } = useFormStep()
 
   const FormStepComponent = FORM_STEPS_MAP[activeStep].component
 
   return (
     <div className={styles.formWrapper}>
       <StepIndicators activeStep={activeStep} />
-      <form className={styles.form}>
-        <FormStepComponent />
+      <form className={styles.form} onSubmit={e => e.preventDefault()}>
+        <FormStepComponent activeStep={activeStep} handleStepChange={handleChangeStep} />
       </form>
     </div>
   )

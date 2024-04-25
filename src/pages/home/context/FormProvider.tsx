@@ -1,6 +1,6 @@
 import { PropsWithChildren, createContext, useMemo, useReducer } from 'react'
 
-import { FormContextValue, FormState } from './types'
+import { FormContextValue, FormErrors, FormState } from './types'
 import { formReducer } from './utils'
 
 export const FormContext = createContext<FormContextValue>({
@@ -9,6 +9,11 @@ export const FormContext = createContext<FormContextValue>({
       userName: '',
       email: '',
       phoneNumber: 0,
+    },
+    errors: {
+      userName: '',
+      email: '',
+      phoneNumber: '',
     },
   },
 } as FormContextValue)
@@ -20,11 +25,18 @@ const FormProvider = ({ children }: PropsWithChildren) => {
       email: '',
       phoneNumber: '',
     },
+    errors: {
+      userName: '',
+      email: '',
+      phoneNumber: '',
+    },
   } as FormState)
 
-  const handleUserNameChange = (username: string) => {
-    console.log(username)
+  const { values, errors } = formState
+  const { userName, email, phoneNumber, selectedAddOnes, selectedPlan } = values
+  const { email: emailError, userName: userNameError, phoneNumber: phoneNumberError } = errors
 
+  const handleUserNameChange = (username: string) => {
     dispatch({
       type: 'UPDATE_USERNAME',
       payload: username,
@@ -45,7 +57,12 @@ const FormProvider = ({ children }: PropsWithChildren) => {
     })
   }
 
-  const handleSubmit = (onSubmit: (formValues: FormValues) => void) => {}
+  const handleSetErrors = (errors: FormErrors) => {
+    dispatch({
+      type: 'SET_ERROR',
+      paylad: errors,
+    })
+  }
 
   const contextValue = useMemo<FormContextValue>(
     () => ({
@@ -54,16 +71,10 @@ const FormProvider = ({ children }: PropsWithChildren) => {
         handleUserNameChange,
         handleEmailChange,
         handlePhoneNumberChange,
-        handleSubmit,
+        handleSetErrors,
       },
     }),
-    [
-      formState?.values?.email,
-      formState?.values?.phoneNumber,
-      formState?.values?.userName,
-      formState?.values?.selectedAddOnes,
-      formState?.values?.selectedPlan,
-    ]
+    [userName, email, phoneNumber, selectedAddOnes, selectedPlan, emailError, userNameError, phoneNumberError]
   )
 
   return <FormContext.Provider value={contextValue}>{children}</FormContext.Provider>

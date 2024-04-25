@@ -21,3 +21,10 @@
   background-color: var(--blue-grey-900);
   color: var(--white);
 }
+
+@media (min-width: 992px) {
+  .footer {
+    position: static;
+    max-width: 85%;
+  }
+}

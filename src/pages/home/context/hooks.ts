@@ -21,6 +21,16 @@ export const useFormErrors = () => {
   return context.state.errors
 }
 
+export const useSetFormErrors = () => {
+  const context = useContext(FormContext)
+
+  if (!context) {
+    throw new Error('useSetFormErrors must be used within a FormProvider')
+  }
+
+  return context.actions.handleSetErrors
+}
+
 export const useSetFormValues = () => {
   const context = useContext(FormContext)
 
@@ -28,5 +38,8 @@ export const useSetFormValues = () => {
     throw new Error('useSetFormValues must be used within a FormProvider')
   }
 
-  return context.actions
+  // eslint-disable-next-line
+  const { handleSetErrors, ...formValuesActions } = context.actions
+
+  return formValuesActions
 }

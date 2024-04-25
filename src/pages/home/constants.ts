@@ -1,29 +1,30 @@
 import { FC } from 'react'
-import { FormStep } from './hooks'
+import { FORM_STEPS, FormStep } from './hooks'
 import PersonalInfoStep from './components/Form/Steps/PersonalInfo'
 import SelectAddOnesStep from './components/Form/Steps/SelectAddOnes'
 import SelectPlanStep from './components/Form/Steps/SelectPlan'
 import PreviewStep from './components/Form/Steps/Preview'
 import SuccessStep from './components/Form/Steps/Success'
+import { StepComponentProps } from './types'
 
-export const FORM_STEPS_MAP: Record<FormStep, { title?: string; component: FC }> = {
-  PERSONAL_INFO: {
+export const FORM_STEPS_MAP: Record<FormStep, { title?: string; component: FC<StepComponentProps> }> = {
+  [FORM_STEPS.PERSONAL_INFO]: {
     title: 'Your info',
     component: PersonalInfoStep,
   },
-  SELECT_PLAN: {
+  [FORM_STEPS.SELECT_PLAN]: {
     title: 'Select plan',
     component: SelectPlanStep,
   },
-  SELECT_ADD_ONES: {
+  [FORM_STEPS.SELECT_ADD_ONES]: {
     title: 'Add-ones',
     component: SelectAddOnesStep,
   },
-  PREVIEW: {
+  [FORM_STEPS.PREVIEW]: {
     title: 'Summary',
     component: PreviewStep,
   },
-  SUCCESS: {
+  [FORM_STEPS.SUCCESS]: {
     component: SuccessStep,
   },
 }
@@ -35,7 +36,7 @@ export type StepsListItem = {
 
 export const formStepsList = Object.entries(FORM_STEPS_MAP).reduce((list, [formStepKey, value]) => {
   list.push({
-    id: formStepKey as FormStep,
+    id: Number(formStepKey) as FormStep,
     title: value.title!,
   })
   return list

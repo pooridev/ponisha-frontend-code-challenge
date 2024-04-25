@@ -57,6 +57,13 @@ export const formReducer = (formState: FormState, action: FormAction): FormState
       }
     }
 
+    case 'SET_ERROR': {
+      return {
+        ...formState,
+        errors: action.paylad,
+      }
+    }
+
     default: {
       console.error(`Unsupported action type passed!! \n Passed action: ${JSON.stringify(action, null, 2)} `)
       return formState

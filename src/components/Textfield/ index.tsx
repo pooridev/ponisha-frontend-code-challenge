@@ -1,4 +1,12 @@
-import { ChangeEvent, InputHTMLAttributes, PropsWithChildren, useCallback, useId, useRef, useState } from 'react'
+import {
+  ChangeEvent,
+  ChangeEventHandler,
+  InputHTMLAttributes,
+  PropsWithChildren,
+  useCallback,
+  useId,
+  useState,
+} from 'react'
 
 import styles from './styles.module.css'
 import classNames from 'classnames'
@@ -7,14 +15,15 @@ import { debounce } from '../../utils'
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
   error?: string
   label: string
+  onChange: ChangeEventHandler<HTMLInputElement>
 }
 
-const Textfield = ({ error, label, ...inputProps }: PropsWithChildren<Props>) => {
+const Textfield = ({ error, label, onChange, ...inputProps }: PropsWithChildren<Props>) => {
   const fieldId = useId()
 
   const [inputValue, setInputValue] = useState(inputProps.value)
 
-  const debouncedOnChange = useCallback(debounce(inputProps?.onChange!, 300), [])
+  const debouncedOnChange = useCallback(debounce(onChange, 300), [])
 
   const handleValueChange = (event: ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value)
@@ -29,6 +38,7 @@ const Textfield = ({ error, label, ...inputProps }: PropsWithChildren<Props>) =>
       </header>
       <input
         {...inputProps}
+        aria-invalid={error ? 'true' : 'false'}
         className={classNames({
           [styles.hasError]: Boolean(error),
         })}
