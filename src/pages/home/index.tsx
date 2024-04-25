@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { Suspense, useRef } from 'react'
 import Layout from '../../components/Layout'
 import Form from './components/Form'
 
@@ -44,7 +44,9 @@ const Home = () => {
               <Form.Header.Description>{formStepDescription}</Form.Header.Description>
             </Form.Header>
 
+            <Suspense>
             <FormStepComponent ref={validateCurrentStepRef} />
+            </Suspense>
           </Form.Body>
 
           <Form.Footer>
