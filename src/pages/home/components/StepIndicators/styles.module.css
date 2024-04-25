@@ -19,6 +19,7 @@
   width: 35px;
   height: 35px;
   display: flex;
+  transition: background-color ease 0.5s;
   justify-content: center;
   align-items: center;
   color: var(--white);
