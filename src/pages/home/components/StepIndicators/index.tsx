@@ -1,5 +1,5 @@
-import { StepsListItem, formStepsList } from '../../../constants'
-import { FormStep } from '../../../hooks/useFormStep/types'
+import { StepsListItem, formStepsList } from '../../constants'
+import { FormStep } from '../../hooks/useFormStep/types'
 import styles from './styles.module.css'
 import classnames from 'classnames'
 

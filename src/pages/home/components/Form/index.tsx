@@ -2,7 +2,7 @@ import { Children, PropsWithChildren, ReactElement } from 'react'
 
 import Footer from './Footer'
 import Header from './Header'
-import StepIndicators from './StepIndicators'
+import StepIndicators from '../StepIndicators'
 
 import styles from './styles.module.css'
 import Body from './‌Body'

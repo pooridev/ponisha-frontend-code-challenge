@@ -1,11 +1,11 @@
 import { forwardRef, useImperativeHandle } from 'react'
-import Textfield from '../../../../../../components/Textfield/ index'
-import { useFormErrors, useFormValues, useSetFormValues } from '../../../../context/hooks'
+import Textfield from '../../../../../components/Textfield/ index'
+import { useFormErrors, useFormValues, useSetFormValues } from '../../../context/hooks'
 
 import { useValidateStep } from './hooks/useValidateStep'
 
 import styles from './styles.module.css'
-import { ValidateStepRef } from '../../../../types'
+import { ValidateStepRef } from '../../../types'
 
 const PersonalInfoStep = forwardRef<ValidateStepRef>((_, parentRef) => {
   const { handleUserNameChange, handleEmailChange, handlePhoneNumberChange } = useSetFormValues()

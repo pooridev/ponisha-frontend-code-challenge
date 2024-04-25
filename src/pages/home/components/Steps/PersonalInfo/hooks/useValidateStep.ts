@@ -1,6 +1,6 @@
-import { REQUIRED_ERROR } from '../../../../../context/constants'
-import { useFormValues, useSetFormErrors } from '../../../../../context/hooks'
-import { FormErrors } from '../../../../../context/types'
+import { REQUIRED_ERROR } from '../../../../context/constants'
+import { useFormValues, useSetFormErrors } from '../../../../context/hooks'
+import { FormErrors } from '../../../../context/types'
 import { INVALID_EMAIL_ERROR, INVALID_NUMBER_ERROR } from './constants'
 import { isValidEmail, isValidPhoneNumber } from './utils'
 
