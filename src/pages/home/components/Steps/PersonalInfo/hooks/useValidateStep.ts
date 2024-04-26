@@ -43,7 +43,7 @@ export const useValidateStep = () => {
 
     handleSetFormErrors(errors)
 
-    const isValid = Object.values(errors).every((fieldValue: string) => Boolean(!fieldValue))
+    const isValid = Object.values(errors).every((fieldValue: string) => !fieldValue)
 
     return isValid
   }
