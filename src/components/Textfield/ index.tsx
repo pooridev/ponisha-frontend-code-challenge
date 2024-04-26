@@ -23,7 +23,7 @@ const Textfield = ({ error, label, onChange, ...inputProps }: PropsWithChildren<
 
   const [inputValue, setInputValue] = useState(inputProps.value)
 
-  const debouncedOnChange = useCallback(debounce(onChange, 300), [])
+  const debouncedOnChange = useCallback(debounce(onChange, 250), [])
 
   const handleValueChange = (event: ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value)
