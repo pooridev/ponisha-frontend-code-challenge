@@ -23,6 +23,7 @@ export interface FormContextValue {
     handlePhoneNumberChange: (phoneNumber: number) => void
     handleSetErrors: (errors: FormErrors) => void
     handleSelectedAddOnChange: (addOn: AddOne) => void
+    handleSelectedPlanChange: (plan: Plan | null) => void
   }
 }
 
@@ -45,7 +46,7 @@ export type FormAction =
     }
   | {
       type: 'UPDATE_PLAN'
-      payload: Plan
+      payload: Plan | null
     }
   | {
       type: 'SET_ERROR'

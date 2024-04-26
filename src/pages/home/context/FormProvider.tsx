@@ -3,7 +3,7 @@ import { PropsWithChildren, createContext, useMemo, useReducer } from 'react'
 import type { FormContextValue, FormErrors } from './types'
 import { formReducer } from './utils'
 import { initialFormState } from './constants'
-import { AddOne } from '../types'
+import { AddOne, Plan } from '../types'
 
 export const FormContext = createContext<FormContextValue>({
   state: initialFormState,
@@ -51,6 +51,13 @@ const FormProvider = ({ children }: PropsWithChildren) => {
     })
   }
 
+  const handleSelectedPlanChange = (plan: Plan | null) => {
+    dispatch({
+      type: 'UPDATE_PLAN',
+      payload: plan,
+    })
+  }
+
   const contextValue = useMemo<FormContextValue>(
     () => ({
       state: formState,
@@ -60,6 +67,7 @@ const FormProvider = ({ children }: PropsWithChildren) => {
         handlePhoneNumberChange,
         handleSetErrors,
         handleSelectedAddOnChange,
+        handleSelectedPlanChange,
       },
     }),
     [userName, email, phoneNumber, selectedAddOnes, selectedPlan, emailError, userNameError, phoneNumberError]

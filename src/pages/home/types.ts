@@ -10,8 +10,9 @@ export type PlanType = 'monthly' | 'yearly'
 interface BasePlan {
   id: number
   title: string
-  description: string
   price: number
+  type: PlanType
+  iconUrl?: string
 }
 
 export interface YearlyPlan extends BasePlan {
