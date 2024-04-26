@@ -4,13 +4,16 @@ import { StepsListItem, formStepsList } from '../../constants'
 import { FormStep } from '../../hooks/useFormStep/types'
 
 import styles from './styles.module.css'
+import { FORM_STEPS } from '@pages/home/hooks'
 
 interface Props {
   activeStep: FormStep
 }
 
 const StepIndicators = ({ activeStep }: Props) => {
-  const isStepActive = (step: StepsListItem) => step.id == activeStep
+  const isStepActive = (step: StepsListItem) => {
+    return (activeStep == FORM_STEPS.SUCCESS && step.id == FORM_STEPS.PREVIEW) || step.id == activeStep
+  }
 
   return (
     <nav className={styles.stepIndicators}>

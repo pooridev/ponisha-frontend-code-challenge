@@ -56,7 +56,7 @@ export const FORM_STEPS_MAP: Record<
   [FORM_STEPS.SUCCESS]: {
     component: SuccessStep,
   },
-}
+} as const
 
 export type StepsListItem = {
   id: FormStep
@@ -64,9 +64,11 @@ export type StepsListItem = {
 }
 
 export const formStepsList = Object.entries(FORM_STEPS_MAP).reduce((list, [formStepKey, value]) => {
-  list.push({
-    id: Number(formStepKey) as FormStep,
-    title: value.title!,
-  })
+  if (formStepKey != FORM_STEPS.SUCCESS) {
+    list.push({
+      id: Number(formStepKey) as FormStep,
+      title: value.title!,
+    })
+  }
   return list
 }, [] as StepsListItem[])

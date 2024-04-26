@@ -1,0 +1,17 @@
+.successStep {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+.successStep h3 {
+  color: var(--blue-grey-900);
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.successStep p {
+  color: var(--grey-400);
+  text-align: center;
+}
