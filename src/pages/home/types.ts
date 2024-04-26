@@ -1,3 +1,5 @@
+import { FormStep } from './hooks'
+
 export interface AddOne {
   title: string
   description: string
@@ -25,6 +27,10 @@ export type Plan<TPlanType extends PlanType = 'monthly'> = TPlanType extends 'ye
 
 export const isYearlyPlan = (plan: Plan): plan is YearlyPlan => {
   return 'bonusService' in plan
+}
+
+export interface StepComponentProps {
+  handleChangeStep: (formSte: FormStep) => void
 }
 
 export type ValidateStepRef = () => boolean

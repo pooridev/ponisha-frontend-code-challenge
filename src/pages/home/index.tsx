@@ -12,16 +12,18 @@ const Home = () => {
 
   const validateCurrentStepRef = useRef<ValidateStepRef>(null)
 
-  const FormStepComponent = FORM_STEPS_MAP[activeStep].component
-
-  const formStepSubTitle = FORM_STEPS_MAP[activeStep].subtitle
-  const formStepDescription = FORM_STEPS_MAP[activeStep].description
-
-  const nextStepButtonLabel = FORM_STEPS_MAP[activeStep].nextButtonLabel
-  const prevStepButtonLabel = FORM_STEPS_MAP[activeStep].prevButtonLabel
+  const {
+    component: FormStepComponent,
+    subtitle,
+    description,
+    nextButtonColor,
+    nextButtonLabel,
+    prevButtonLabel,
+  } = FORM_STEPS_MAP[activeStep]
 
   const handleNextStep = () => {
-    const isStepValid = validateCurrentStepRef.current?.()
+    // For steps that have no validation, we dont pass any validation function as ref.
+    const isStepValid = validateCurrentStepRef.current == null || validateCurrentStepRef.current()
 
     if (isStepValid) {
       const newStep = (activeStep + 1) as FormStep
@@ -40,24 +42,24 @@ const Home = () => {
         <Form activeStep={activeStep} handleChangeStep={handleChangeStep}>
           <Form.Body>
             <Form.Header>
-              <Form.Header.Title>{formStepSubTitle}</Form.Header.Title>
-              <Form.Header.Description>{formStepDescription}</Form.Header.Description>
+              <Form.Header.Title>{subtitle}</Form.Header.Title>
+              <Form.Header.Description>{description}</Form.Header.Description>
             </Form.Header>
 
             <Suspense>
-              <FormStepComponent ref={validateCurrentStepRef} />
+              <FormStepComponent ref={validateCurrentStepRef} handleChangeStep={handleChangeStep} />
             </Suspense>
           </Form.Body>
 
           <Form.Footer>
-            {prevStepButtonLabel && (
-              <Form.Footer.PreviousButton onClick={handlePreviousStep}>
-                {prevStepButtonLabel}
-              </Form.Footer.PreviousButton>
+            {prevButtonLabel && (
+              <Form.Footer.PreviousButton onClick={handlePreviousStep}>{prevButtonLabel}</Form.Footer.PreviousButton>
             )}
 
-            {nextStepButtonLabel && (
-              <Form.Footer.NextButton onClick={handleNextStep}>{nextStepButtonLabel}</Form.Footer.NextButton>
+            {nextButtonLabel && (
+              <Form.Footer.NextButton color={nextButtonColor} onClick={handleNextStep}>
+                {nextButtonLabel}
+              </Form.Footer.NextButton>
             )}
           </Form.Footer>
         </Form>

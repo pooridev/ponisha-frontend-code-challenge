@@ -1,8 +1,19 @@
 import { ButtonHTMLAttributes, PropsWithChildren } from 'react'
 
-const NextButton = ({ children, ...buttonProps }: PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>>) => {
+interface Props extends PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>> {
+  color?: string
+}
+
+const NextButton = ({ children, color, ...buttonProps }: Props) => {
   return (
-    <button className='nextButton' {...buttonProps} type='submit'>
+    <button
+      className='nextButton'
+      style={{
+        background: color,
+      }}
+      {...buttonProps}
+      type='submit'
+    >
       {children}
     </button>
   )

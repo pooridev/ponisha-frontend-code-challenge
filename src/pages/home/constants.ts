@@ -7,17 +7,18 @@ const SelectPlanStep = lazy(() => import('./components/Steps/SelectPlan'))
 const PreviewStep = lazy(() => import('./components/Steps/Preview'))
 const SuccessStep = lazy(() => import('./components/Steps/Success'))
 
-import { ValidateStepRef } from './types'
+import { StepComponentProps, ValidateStepRef } from './types'
 
 export const FORM_STEPS_MAP: Record<
   FormStep,
   {
     title?: string
-    subtitle: string
-    description: string
+    subtitle?: string
+    description?: string
     prevButtonLabel?: string
     nextButtonLabel?: string
-    component: ForwardRefExoticComponent<RefAttributes<ValidateStepRef>> | FC
+    nextButtonColor?: string
+    component: ForwardRefExoticComponent<RefAttributes<ValidateStepRef>> | FC<StepComponentProps> | FC
   }
 > = {
   [FORM_STEPS.PERSONAL_INFO]: {
@@ -47,14 +48,12 @@ export const FORM_STEPS_MAP: Record<
     title: 'Summary',
     subtitle: 'Finishing up',
     nextButtonLabel: 'Confirm',
+    nextButtonColor: 'var(--indigo-600)',
     prevButtonLabel: 'Go back',
     description: 'Double-check everything looks OK before confirming.',
     component: PreviewStep,
   },
   [FORM_STEPS.SUCCESS]: {
-    subtitle: 'Thank you',
-    description:
-      'Thanks for confirming your subscription! We hope you have fun using our platform. If you ever need support, please feel free to email us at support@loregaming.com',
     component: SuccessStep,
   },
 }
