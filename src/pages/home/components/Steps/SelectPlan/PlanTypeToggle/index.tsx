@@ -9,13 +9,15 @@ interface Props {
 }
 
 const PlanTypeToggle = ({ planType, handleChangePlanType }: Props) => {
-  const handleTogglePlanType = () => handleChangePlanType(planType == 'monthly' ? 'yearly' : 'monthly')
+  const isMonthly = planType == 'monthly'
+
+  const handleTogglePlanType = () => handleChangePlanType(isMonthly ? 'yearly' : 'monthly')
 
   return (
     <div className={styles.planTypeToggle}>
       <button
         className={classNames(styles.togglebutton, {
-          [styles.active]: planType === 'monthly',
+          [styles.active]: isMonthly,
         })}
         onClick={() => handleChangePlanType('monthly')}
       >
@@ -24,7 +26,7 @@ const PlanTypeToggle = ({ planType, handleChangePlanType }: Props) => {
       <Toggle checked={planType == 'yearly'} onChange={handleTogglePlanType} />
       <button
         className={classNames(styles.togglebutton, {
-          [styles.active]: planType === 'yearly',
+          [styles.active]: !isMonthly,
         })}
         onClick={() => handleChangePlanType('yearly')}
       >
