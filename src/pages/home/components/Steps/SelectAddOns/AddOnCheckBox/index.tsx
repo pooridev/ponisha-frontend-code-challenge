@@ -1,22 +1,23 @@
 import { PropsWithChildren } from 'react'
 import classNames from 'classnames'
 
-import { AddOne } from '@pages/home/types'
+import { AddOne, PlanType } from '@pages/home/types'
 import Checkbox from '@components/Checkbox'
 
 import styles from './styles.module.css'
 import { getPriceLabel } from '../../utils'
 
 interface Props {
-  value: AddOne
+  addOn: AddOne
   checked: boolean
+  planType: PlanType
   onChange: (addOne: AddOne) => void
 }
 
-const AddOnCheckBox = ({ checked, value, onChange }: PropsWithChildren<Props>) => {
+const AddOnCheckBox = ({ checked, addOn, onChange, planType }: PropsWithChildren<Props>) => {
   return (
     <div
-      onClick={() => onChange(value)}
+      onClick={() => onChange(addOn)}
       className={classNames(styles.addOnCheckbox, {
         [styles.checked]: checked,
       })}
@@ -24,11 +25,11 @@ const AddOnCheckBox = ({ checked, value, onChange }: PropsWithChildren<Props>) =
       <Checkbox checked={checked} />
 
       <div className={styles.addOnInfo}>
-        <p className={styles.title}>{value.title}</p>
-        <p className={styles.description}>{value.description}</p>
+        <p className={styles.title}>{addOn.title}</p>
+        <p className={styles.description}>{addOn.description}</p>
       </div>
-      {/** TODO: apendix should be dynamic based on the plan type (mo or yr?) */}
-      <p className={styles.price}>+{getPriceLabel(value.price, 'mo')}</p>
+
+      <p className={styles.price}>+{getPriceLabel(addOn.price, planType == 'monthly' ? 'mo' : 'yr')}</p>
     </div>
   )
 }

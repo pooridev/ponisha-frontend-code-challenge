@@ -9,7 +9,9 @@ import { useValidateStep } from './hooks/useValidateStep'
 import styles from './styles.module.css'
 
 const SelectAddOnesStep = forwardRef<ValidateStepRef>((_, parentRef) => {
-  const { selectedAddOnes } = useFormValues()
+  const { selectedAddOnes, selectedPlan } = useFormValues()
+  const planType = selectedPlan?.type || 'monthly'
+
   const { handleSelectedAddOnChange } = useSetFormValues()
 
   const isSelected = (addOn: AddOne) => selectedAddOnes.some(_addOn => _addOn.id == addOn.id)
@@ -21,7 +23,12 @@ const SelectAddOnesStep = forwardRef<ValidateStepRef>((_, parentRef) => {
   return (
     <div className={styles.addOns}>
       {ADD_ONS.map(addOn => (
-        <AddOnCheckBox onChange={handleSelectedAddOnChange} value={addOn} checked={isSelected(addOn)} />
+        <AddOnCheckBox
+          planType={planType}
+          onChange={handleSelectedAddOnChange}
+          addOn={addOn}
+          checked={isSelected(addOn)}
+        />
       ))}
     </div>
   )
