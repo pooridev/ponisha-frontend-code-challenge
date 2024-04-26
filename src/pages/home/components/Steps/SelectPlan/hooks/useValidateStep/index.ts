@@ -1,6 +1,7 @@
 import toast from 'react-hot-toast'
-import { useFormValues } from '../../../../../context/hooks'
-import { REQUIRED_ERROR } from '../../../../../context/constants'
+
+import { useFormValues } from '@pages/home/context/hooks'
+import { REQUIRED_ERROR } from '@pages/home/context/constants'
 
 export const useValidateStep = () => {
   const { selectedPlan } = useFormValues()

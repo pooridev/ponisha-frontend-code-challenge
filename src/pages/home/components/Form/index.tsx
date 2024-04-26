@@ -3,11 +3,11 @@ import { Children, PropsWithChildren, ReactElement } from 'react'
 import Footer from './Footer'
 import Header from './Header'
 import StepIndicators from '../StepIndicators'
+import Body from './‌Body'
+import { getComponentDisplayName } from '@utils'
+import { FormStep } from '../../hooks'
 
 import styles from './styles.module.css'
-import Body from './‌Body'
-import { getComponentDisplayName } from '../../../../utils'
-import { FormStep } from '../../hooks'
 
 interface Props {
   activeStep: FormStep

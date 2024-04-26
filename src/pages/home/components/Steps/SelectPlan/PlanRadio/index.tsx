@@ -1,7 +1,9 @@
-import { Plan, isYearlyPlan } from '../../../../types'
-import styles from './styles.module.css'
 import classNames from 'classnames'
+
+import { Plan, isYearlyPlan } from '@pages/home/types'
 import { getBonusServiceLabel, getPriceLabel } from './utils'
+
+import styles from './styles.module.css'
 
 interface Props {
   plan: Plan

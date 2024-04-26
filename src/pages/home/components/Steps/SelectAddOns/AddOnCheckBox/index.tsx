@@ -1,8 +1,8 @@
 import { PropsWithChildren } from 'react'
 import classNames from 'classnames'
 
-import { AddOne } from '../../../../types'
-import Checkbox from '../../../../../../components/Checkbox'
+import { AddOne } from '@pages/home/types'
+import Checkbox from '@components/Checkbox'
 import { getPriceLabel } from './utils'
 
 import styles from './styles.module.css'

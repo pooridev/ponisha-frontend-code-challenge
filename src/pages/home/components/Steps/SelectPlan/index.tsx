@@ -1,13 +1,14 @@
 import { forwardRef, useImperativeHandle } from 'react'
-import { useFormValues, useSetFormValues } from '../../../context/hooks'
-import { Plan, ValidateStepRef } from '../../../types'
+
+import { useFormValues, useSetFormValues } from '@pages/home/context/hooks'
+import { Plan, ValidateStepRef } from '@pages/home/types'
 import PlanRadio from './PlanRadio'
 import PlanTypeToggle from './PlanTypeToggle'
 import { PLANS } from './constants'
 import { usePlanType } from './hooks/usePlanType'
+import { useValidateStep } from './hooks/useValidateStep'
 
 import styles from './styles.module.css'
-import { useValidateStep } from './hooks/useValidateStep'
 
 const SelectPlanStep = forwardRef<ValidateStepRef>((_, parentRef) => {
   const handleValidateStep = useValidateStep()

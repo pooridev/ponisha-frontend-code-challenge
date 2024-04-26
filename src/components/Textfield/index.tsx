@@ -10,7 +10,7 @@ import {
 
 import styles from './styles.module.css'
 import classNames from 'classnames'
-import { debounce } from '../../utils'
+import { debounce } from '@utils'
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
   error?: string

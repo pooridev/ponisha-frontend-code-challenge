@@ -1,9 +1,9 @@
 import { forwardRef, useImperativeHandle } from 'react'
 
-import { useFormValues, useSetFormValues } from '../../../context/hooks'
+import { useFormValues, useSetFormValues } from '@pages/home/context/hooks'
 import AddOnCheckBox from './AddOnCheckBox'
 import { ADD_ONS } from './constants'
-import { AddOne, ValidateStepRef } from '../../../types'
+import { AddOne, ValidateStepRef } from '@pages/home/types'
 import { useValidateStep } from './hooks/useValidateStep'
 
 import styles from './styles.module.css'

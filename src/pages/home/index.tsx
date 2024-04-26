@@ -1,5 +1,5 @@
 import { Suspense, useRef } from 'react'
-import Layout from '../../components/Layout'
+import Layout from '@components/Layout'
 import Form from './components/Form'
 
 import { FORM_STEPS_MAP } from './constants'

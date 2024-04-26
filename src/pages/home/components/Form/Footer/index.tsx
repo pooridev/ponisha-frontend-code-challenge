@@ -1,9 +1,9 @@
 import { Children, PropsWithChildren, ReactElement } from 'react'
-import styles from './styles.module.css'
 import PreviousButton from './PreviousButton'
 import NextButton from './NextButton'
+import { getComponentDisplayName } from '@utils'
 
-import { getComponentDisplayName } from '../../../../../utils'
+import styles from './styles.module.css'
 
 const Footer = ({ children }: PropsWithChildren) => {
   const childrenArray = Children.toArray(children)

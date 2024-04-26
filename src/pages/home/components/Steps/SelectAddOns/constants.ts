@@ -1,4 +1,4 @@
-import { AddOne } from '../../../types'
+import { AddOne } from '@pages/home/types'
 
 export const ADD_ONS: AddOne[] = [
   {

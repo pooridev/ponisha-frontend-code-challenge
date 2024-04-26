@@ -1,6 +1,8 @@
 import classNames from 'classnames'
-import Toggle from '../../../../../../components/Toggle'
-import { PlanType } from '../../../../types'
+
+import Toggle from '@components/Toggle'
+import { PlanType } from '@pages/home/types'
+
 import styles from './styles.module.css'
 
 interface Props {
