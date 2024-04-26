@@ -3,7 +3,9 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 42dvh;
+  height: 42dvh; /* For browsers that don't support CSS variables */
+  height: calc(var(--1dvh, 1vh) * 42); /* This is the "polyfill" */
+  height: 42dvh; /* This is for modern browsers that support svh, dvh and lvh viewport units */
 }
 
 .plans {
