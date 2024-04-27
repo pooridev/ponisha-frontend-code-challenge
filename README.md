@@ -1,30 +1,54 @@
-# React + TypeScript + Vite
+## Table Of Content
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+1. [How to run the project](#How-to-run-the-project)
+2. [Objectives](#Objectives)
 
-Currently, two official plugins are available:
+## How to run the project
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. Install dependencies
+   - `yarn`
+2. Run project in dev mode
+   - `yarn start`
 
-## Expanding the ESLint configuration
+### Objective:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+> Create a responsive wizard (Stepper) form component based on the provided design.
 
-- Configure the top-level `parserOptions` property like this:
+```
+❌ Uncompleted Tasks
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+✅ Completed Tasks ( Checked for completion )
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+---
+
+- <span style="color: cyan; font-size: 20px"> Subscription Form </span>
+
+  1. ✅ Complete the shown step and then navigate to the next step.
+  2. ✅ Go back functionality.
+  3. ✅ A step to review provided values.
+  4. ✅ Having validations for each step and not allow user to navigate through steps if the current step not completed.
+
+---
+
+- <span style="color: cyan; font-size: 20px"> Screen shots: </span>
+
+> Step one (personal info)
+
+![Step one](./public/step-one-screenshot.png)
+
+> Step Two (Select Add-ons)
+
+![Step one](./public/step-two-screenshot.png)
+
+> Step Three (Select Plan)
+
+![Step one](./public/step-three-screenshot.png)
+
+> Step Four (Preview)
+
+![Step one](./public/step-four-screenshot.png)
+
+> Step five (Success)
+
+![Step one](./public/step-five-screenshot.png)
