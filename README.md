@@ -1,7 +1,7 @@
 ## Table Of Content
 
 1. [How to run the project](#How-to-run-the-project)
-2. [Objectives](#Objectives)
+2. [Objective](#Objective)
 
 ## How to run the project
 
