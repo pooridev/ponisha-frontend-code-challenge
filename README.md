@@ -5,6 +5,10 @@
 
 ## How to run the project
 
+0. Make sure you have a compatible version of Node.js installed on your machine. It is recommended to use Node.js version 18.18.0 or higher for optimal compatibility. Run this if you got nvm installed on your machine:
+
+   - `nvm install 18.18.0`
+
 1. Install dependencies
    - `yarn`
 2. Run project in dev mode
