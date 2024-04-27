@@ -10,6 +10,7 @@ import styles from './styles.module.css'
 
 const SelectAddOnesStep = forwardRef<ValidateStepRef>((_, parentRef) => {
   const { selectedAddOnes, selectedPlan } = useFormValues()
+
   const planType = selectedPlan?.type || 'monthly'
 
   const { handleSelectedAddOnChange } = useSetFormValues()
@@ -22,7 +23,7 @@ const SelectAddOnesStep = forwardRef<ValidateStepRef>((_, parentRef) => {
 
   return (
     <div className={styles.addOns}>
-      {ADD_ONS.map(addOn => (
+      {ADD_ONS[planType].map(addOn => (
         <AddOnCheckBox
           planType={planType}
           onChange={handleSelectedAddOnChange}
