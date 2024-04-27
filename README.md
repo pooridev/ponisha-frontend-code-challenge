@@ -24,10 +24,21 @@
 
 - <span style="color: cyan; font-size: 20px"> Subscription Form </span>
 
-  1. ✅ Complete the shown step and then navigate to the next step.
-  2. ✅ Go back functionality.
-  3. ✅ A step to review provided values.
-  4. ✅ Having validations for each step and not allow user to navigate through steps if the current step not completed.
+  1. ✅ Step Completion: Users are required to complete each step before advancing to the next, ensuring that all necessary information is provided.
+  2. ✅ Go Back Functionality: Users can navigate back to previous steps if they need to review or edit previously entered information.
+  3. ✅ Review Step: Before final submission, users have the opportunity to review all provided values to ensure accuracy.
+  4. ✅ Validation: Validation is implemented for each step to ensure data integrity. Users cannot navigate to subsequent steps until the current step is completed satisfactorily.
+
+---
+
+- <span style="color: cyan; font-size: 20px"> Built With: </span>
+
+  - Typescript
+  - Vite
+  - Eslint & Prettier
+  - React
+  - CSS Modules
+  - Framer Motion
 
 ---
 
