@@ -26,7 +26,7 @@ const SelectPlanStep = forwardRef<ValidateStepRef>((_, parentRef) => {
     <div className={styles.plansWrapper}>
       <div className={styles.plans}>
         {PLANS[planType].map(plan => {
-          return <PlanRadio plan={plan} onChange={handleSelectedPlanChange} checked={isSelected(plan)} />
+          return <PlanRadio key={plan.id} plan={plan} onChange={handleSelectedPlanChange} checked={isSelected(plan)} />
         })}
       </div>
       <PlanTypeToggle planType={planType} handleChangePlanType={handleChangePlanType} />

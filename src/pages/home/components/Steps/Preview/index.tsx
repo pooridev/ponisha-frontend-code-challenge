@@ -32,7 +32,7 @@ const PreviewStep = ({ handleChangeStep }: StepComponentProps) => {
         <div className={styles.divider} />
         {selectedAddOnes.map(addOn => {
           return (
-            <div className={styles.addOn}>
+            <div key={addOn.id} className={styles.addOn}>
               <p className={styles.addOnTitle}>{addOn.title}</p>
               <p className={styles.addOnPrice}>
                 +{getPriceLabel(addOn.price, selectedPlan?.type == 'monthly' ? 'mo' : 'yr')}

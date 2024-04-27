@@ -25,6 +25,7 @@ const SelectAddOnesStep = forwardRef<ValidateStepRef>((_, parentRef) => {
     <div className={styles.addOns}>
       {ADD_ONS[planType].map(addOn => (
         <AddOnCheckBox
+          key={addOn.id}
           planType={planType}
           onChange={handleSelectedAddOnChange}
           addOn={addOn}
