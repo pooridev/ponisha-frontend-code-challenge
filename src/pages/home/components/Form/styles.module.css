@@ -12,7 +12,7 @@
   .formWrapper {
     background: var(--white);
     margin: auto;
-    max-width: 50dvw;
+    max-width: 80dvw;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(5, 1fr);
@@ -25,5 +25,11 @@
   .form {
     position: static;
     grid-area: 1 / 2 / 5 / 6;
+  }
+}
+
+@media (min-width: 1300px) {
+  .formWrapper {
+    max-width: 55dvw;
   }
 }
