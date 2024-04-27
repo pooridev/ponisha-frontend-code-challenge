@@ -26,5 +26,9 @@
   .footer {
     position: static;
     max-width: 85%;
+    grid-area: 5 / 2 / 6 / 6;
+    padding: 2rem 1rem 2rem;
+    max-width: 85%;
+    margin: auto;
   }
 }

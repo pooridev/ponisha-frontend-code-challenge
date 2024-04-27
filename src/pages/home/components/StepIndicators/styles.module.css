@@ -41,13 +41,45 @@
 }
 
 @media (min-width: 992px) {
-  .stepInfo {
-    display: block;
-  }
-
   .stepIndicators {
     position: relative;
-    width: 20rem;
+    width: 15rem;
     height: 100%;
+    margin: unset;
+    background-image: url(/src/assets/images/bg-sidebar-desktop.svg);
+    grid-area: 1 / 1 / 6 / 2;
+  }
+
+  .stepIndicators > ul {
+    height: 100%;
+    flex-direction: column;
+    justify-content: start;
+    gap: 1rem;
+  }
+
+  .indicator {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    width: 100%;
+    padding-left: 1.4rem;
+  }
+
+  .stepInfo {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .label,
+  .title {
+    color: var(--white);
+  }
+
+  .label {
+    color: var(--grey-400);
+  }
+
+  .title {
+    font-weight: bold;
   }
 }

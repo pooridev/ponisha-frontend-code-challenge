@@ -28,8 +28,8 @@ const StepIndicators = ({ activeStep }: Props) => {
               {index + 1}
             </span>
             <div className={styles.stepInfo}>
-              <p>step {index + 1}</p>
-              <p>{step.title}</p>
+              <p className={styles.label}>step {index + 1}</p>
+              <p className={styles.title}>{step.title}</p>
             </div>
           </li>
         ))}

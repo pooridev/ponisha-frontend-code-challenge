@@ -20,7 +20,7 @@ const PlanRadio = ({ plan, checked, onChange }: Props) => {
       })}
       onClick={() => onChange(plan)}
     >
-      <img src={plan.iconUrl} />
+      <img height={50} width={50} src={plan.iconUrl} />
       <div className={styles.planInfo}>
         <p>{plan.title}</p>
         <p className={styles.price}>{getPriceLabel(plan.price, plan.type == 'monthly' ? 'mo' : 'yr')}</p>

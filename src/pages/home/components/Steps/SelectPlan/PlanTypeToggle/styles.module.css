@@ -16,3 +16,9 @@
 .togglebutton.active {
   color: var(--blue-grey-900);
 }
+
+@media (min-width: 992px) {
+  .planTypeToggle {
+    margin-top: 2rem;
+  }
+}

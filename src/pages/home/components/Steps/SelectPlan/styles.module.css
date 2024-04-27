@@ -13,3 +13,13 @@
   flex-direction: column;
   gap: 1rem;
 }
+
+@media (min-width: 992px) {
+  .plansWrapper {
+    height: auto;
+  }
+  .plans {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}

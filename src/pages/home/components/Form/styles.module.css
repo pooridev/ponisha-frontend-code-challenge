@@ -10,11 +10,20 @@
 
 @media (min-width: 992px) {
   .formWrapper {
-    height: 100%;
-    display: flex;
-    justify-content: space-between;
+    background: var(--white);
+    margin: auto;
+    max-width: 50dvw;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    border-radius: 7px;
+    height: 600px;
   }
+
   .form {
     position: static;
+    grid-area: 1 / 2 / 5 / 6;
   }
 }

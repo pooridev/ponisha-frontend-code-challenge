@@ -72,3 +72,8 @@ ol {
   margin-inline-end: 0;
   padding-inline-start: 0;
 }
+
+input {
+  padding-block: 0;
+  padding-inline: 0;
+}
