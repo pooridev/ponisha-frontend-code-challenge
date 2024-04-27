@@ -1,10 +1,11 @@
 import { useState } from 'react'
 
 import { PlanType } from '@pages/home/types'
-import { useSetFormValues } from '@pages/home/context/hooks'
+import { useFormValues, useSetFormValues } from '@pages/home/context/hooks'
 
 export const usePlanType = () => {
-  const [planType, setPlanType] = useState<PlanType>('monthly')
+  const { selectedPlan } = useFormValues()
+  const [planType, setPlanType] = useState<PlanType>(() => selectedPlan?.type || 'monthly')
 
   const { handleSelectedPlanChange } = useSetFormValues()
 
