@@ -1,10 +1,10 @@
 import classnames from 'classnames'
 
-import { StepsListItem, formStepsList } from '../../constants'
 import { FormStep } from '../../hooks/useFormStep/types'
 
 import styles from './styles.module.css'
 import { FORM_STEPS } from '@pages/home/hooks'
+import { StepsListItem, formStepsList } from './constants'
 
 interface Props {
   activeStep: FormStep
