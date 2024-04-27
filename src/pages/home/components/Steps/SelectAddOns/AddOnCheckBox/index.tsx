@@ -1,5 +1,6 @@
 import { PropsWithChildren } from 'react'
 import classNames from 'classnames'
+import { motion } from 'framer-motion'
 
 import { AddOne, PlanType } from '@pages/home/types'
 import Checkbox from '@components/Checkbox'
@@ -14,9 +15,22 @@ interface Props {
   onChange: (addOne: AddOne) => void
 }
 
+const motionVariants = {
+  rest: { scale: 1 },
+  hover: { scale: 1.01 },
+  pressed: { scale: 0.99 },
+}
+
 const AddOnCheckBox = ({ checked, addOn, onChange, planType }: PropsWithChildren<Props>) => {
   return (
-    <div
+    <motion.div
+      variants={motionVariants}
+      initial='rest'
+      whileHover='hover'
+      whileTap='pressed'
+      transition={{
+        duration: 0.001,
+      }}
       onClick={() => onChange(addOn)}
       className={classNames(styles.addOnCheckbox, {
         [styles.checked]: checked,
@@ -30,7 +44,7 @@ const AddOnCheckBox = ({ checked, addOn, onChange, planType }: PropsWithChildren
       </div>
 
       <p className={styles.price}>+{getPriceLabel(addOn.price, planType == 'monthly' ? 'mo' : 'yr')}</p>
-    </div>
+    </motion.div>
   )
 }
 

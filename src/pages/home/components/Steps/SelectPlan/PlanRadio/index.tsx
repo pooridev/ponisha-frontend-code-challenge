@@ -1,4 +1,5 @@
 import classNames from 'classnames'
+import { motion } from 'framer-motion'
 
 import { Plan, isYearlyPlan } from '@pages/home/types'
 import { getBonusServiceLabel } from './utils'
@@ -12,9 +13,22 @@ interface Props {
   onChange: (plan: Plan) => void
 }
 
+const motionVariants = {
+  rest: { scale: 1 },
+  hover: { scale: 1.01 },
+  pressed: { scale: 0.99 },
+}
+
 const PlanRadio = ({ plan, checked, onChange }: Props) => {
   return (
-    <div
+    <motion.div
+      variants={motionVariants}
+      initial='rest'
+      whileHover='hover'
+      whileTap='pressed'
+      transition={{
+        duration: 0.001,
+      }}
       className={classNames(styles.planRadio, {
         [styles.checked]: checked,
       })}
@@ -27,7 +41,7 @@ const PlanRadio = ({ plan, checked, onChange }: Props) => {
         {isYearlyPlan(plan) && <p className={styles.bonusService}>{getBonusServiceLabel(plan.bonusService)}</p>}
       </div>
       <input type='radio' className='visually-hidden' checked={checked} />
-    </div>
+    </motion.div>
   )
 }
 
