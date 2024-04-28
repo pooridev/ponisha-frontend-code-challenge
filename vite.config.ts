@@ -28,6 +28,7 @@ export default defineConfig(() => {
         '@utils': pathResolver('./src/utils'),
         '@assets': pathResolver('./src/assets'),
         '@pages': pathResolver('./src/pages'),
+        '@hooks': pathResolver('./src/hooks'),
       },
     },
     server: {

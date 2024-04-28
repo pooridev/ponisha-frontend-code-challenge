@@ -6,11 +6,14 @@ import { FORM_STEPS_MAP } from './constants'
 import FormProvider from './context/FormProvider'
 import { FormStep, useFormStep } from './hooks'
 import { ValidateStepRef } from './types'
+import { useBlockRefresh } from '@hooks/useBlockRefresh'
 
 const Home = () => {
   const { activeStep, handleChangeStep } = useFormStep()
 
   const validateCurrentStepRef = useRef<ValidateStepRef>(null)
+
+  useBlockRefresh()
 
   const {
     component: FormStepComponent,
